@@ -24,4 +24,54 @@ struct AddTaskView: View {
                 }
                 
                 Section("Priority") {
+                    Picker("Select Priority", selection: $priority) {
+                        ForEach(Priority.allCases, id: \.self) { priority in
+                            HStack {
+                                Circle()
+                                    .fill(Color(priority.color))
+                                    .frame(width: 12, height: 12)
+                                Text(priority.rawValue)
+                            }
+                            .tag(priority)
+                        }
+                    }
+                }
                 
+                Section("Project") {
+                    Picker("Select Project", selection: $selectedProject) {
+                        Text("None")
+                            .tag(Optional<Project>.none)
+                        ForEach(taskManager.projects) { project in
+                            Text(project.name)
+                                .tag(Optional(project))
+                        }
+                    }
+                }
+            }
+            .navigationTitle("New Task")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        dismiss()
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add") {
+                        let newTask = Task(
+                            title: title,
+                            description: description,
+                            dueDate: dueDate,
+                            priority: priority,
+                            projectId: selectedProject?.id
+                        )
+                        taskManager.addTask(newTask)
+                        dismiss()
+                    }
+                    .disabled(title.isEmpty)
+                }
+            }
+        }
+    }
+}
