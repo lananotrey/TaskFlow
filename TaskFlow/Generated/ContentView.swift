@@ -7,6 +7,12 @@ struct ContentView: View {
     var body: some View {
         if hasCompletedOnboarding {
             TabView {
+                StatsView()
+                    .tabItem {
+                        Label("Stats", systemImage: "chart.bar")
+                    }
+                    .environmentObject(taskManager)
+                
                 TaskListView()
                     .tabItem {
                         Label("Tasks", systemImage: "checklist")
@@ -19,11 +25,10 @@ struct ContentView: View {
                     }
                     .environmentObject(taskManager)
                 
-                StatsView()
+                SettingsView()
                     .tabItem {
-                        Label("Stats", systemImage: "chart.bar")
+                        Label("Settings", systemImage: "gear")
                     }
-                    .environmentObject(taskManager)
             }
             .tint(.indigo)
         } else {
