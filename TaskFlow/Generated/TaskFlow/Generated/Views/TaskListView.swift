@@ -39,7 +39,7 @@ struct TaskListView: View {
                         showingAddTask = true
                     } label: {
                         Image(systemName: "plus.circle.fill")
-                            .foregroundStyle(.indigo)
+                            .foregroundColor(.indigo)
                     }
                 }
                 
@@ -50,7 +50,7 @@ struct TaskListView: View {
                         Button("Title") { selectedSortOption = .title }
                     } label: {
                         Label("Sort", systemImage: "arrow.up.arrow.down")
-                            .foregroundStyle(.indigo)
+                            .foregroundColor(.indigo)
                     }
                 }
             }
@@ -68,14 +68,14 @@ struct TaskListView: View {
     private var statsCards: some View {
         VStack(spacing: 16) {
             HStack(spacing: 16) {
-                StatCard(
+                StatCardView(
                     title: "Completion Rate",
                     value: String(format: "%.0f%%", taskManager.completionRate() * 100),
                     icon: "chart.pie.fill",
                     color: .indigo
                 )
                 
-                StatCard(
+                StatCardView(
                     title: "Total Tasks",
                     value: "\(taskManager.tasks.count)",
                     icon: "checklist",
@@ -157,7 +157,7 @@ struct TaskListView: View {
             } else {
                 ForEach(sortedTasks) { task in
                     NavigationLink(destination: TaskDetailView(task: task)) {
-                        TaskRow(task: task)
+                        TaskRowView(task: task)
                             .background(Color(UIColor.secondarySystemGroupedBackground))
                             .cornerRadius(12)
                     }
