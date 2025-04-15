@@ -1,0 +1,149 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {
+    };
+    objectVersion = 56;
+    objects = {
+        /* Begin PBXBuildFile section */
+        1234567890ABCDEF /* TaskFlowApp.swift in Sources */ = {
+            isa = PBXBuildFile;
+            fileRef = 1234567890ABCDE0 /* TaskFlowApp.swift */;
+        };
+        1234567890ABCDE1 /* ContentView.swift in Sources */ = {
+            isa = PBXBuildFile;
+            fileRef = 1234567890ABCDE2 /* ContentView.swift */;
+        };
+        1234567890ABCDE3 /* Assets.xcassets in Resources */ = {
+            isa = PBXBuildFile;
+            fileRef = 1234567890ABCDE4 /* Assets.xcassets */;
+        };
+        /* Add other source files here */
+        /* End PBXBuildFile section */
+        
+        /* Begin PBXFileReference section */
+        1234567890ABCDE0 /* TaskFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFlowApp.swift; sourceTree = "<group>"; };
+        1234567890ABCDE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+        1234567890ABCDE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+        /* Add other file references here */
+        /* End PBXFileReference section */
+        
+        /* Begin PBXFrameworksBuildPhase section */
+        1234567890ABCDE5 /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        /* End PBXFrameworksBuildPhase section */
+        
+        /* Begin PBXGroup section */
+        1234567890ABCDE6 /* TaskFlow */ = {
+            isa = PBXGroup;
+            children = (
+                1234567890ABCDE0 /* TaskFlowApp.swift */,
+                1234567890ABCDE2 /* ContentView.swift */,
+                1234567890ABCDE4 /* Assets.xcassets */,
+                /* Add other groups and files here */
+            );
+            path = TaskFlow;
+            sourceTree = "<group>";
+        };
+        /* End PBXGroup section */
+        
+        /* Begin PBXNativeTarget section */
+        1234567890ABCDE7 /* TaskFlow */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = 1234567890ABCDE8;
+            buildPhases = (
+                1234567890ABCDE9 /* Sources */,
+                1234567890ABCDEA /* Frameworks */,
+                1234567890ABCDEB /* Resources */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = TaskFlow;
+            productName = TaskFlow;
+            productReference = 1234567890ABCDEC;
+            productType = "com.apple.product-type.application";
+        };
+        /* End PBXNativeTarget section */
+        
+        /* Begin XCBuildConfiguration section */
+        1234567890ABCDED /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+                CODE_SIGN_STYLE = Automatic;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_ASSET_PATHS = "TaskFlow/Preview\\ Content";
+                DEVELOPMENT_TEAM = "";
+                ENABLE_PREVIEWS = YES;
+                GENERATE_INFOPLIST_FILE = YES;
+                INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+                INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+                INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+                INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.example.TaskFlow;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 5.0;
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Debug;
+        };
+        1234567890ABCDEE /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+                CODE_SIGN_STYLE = Automatic;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_ASSET_PATHS = "TaskFlow/Preview\\ Content";
+                DEVELOPMENT_TEAM = "";
+                ENABLE_PREVIEWS = YES;
+                GENERATE_INFOPLIST_FILE = YES;
+                INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+                INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+                INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+                INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/Frameworks",
+                );
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.example.TaskFlow;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                SWIFT_EMIT_LOC_STRINGS = YES;
+                SWIFT_VERSION = 5.0;
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Release;
+        };
+        /* End XCBuildConfiguration section */
+        
+        /* Begin XCConfigurationList section */
+        1234567890ABCDEF /* Build configuration list for PBXProject "TaskFlow" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                1234567890ABCDED /* Debug */,
+                1234567890ABCDEE /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        /* End XCConfigurationList section */
+    };
+    rootObject = 1234567890ABCDF0 /* Project object */;
+}
