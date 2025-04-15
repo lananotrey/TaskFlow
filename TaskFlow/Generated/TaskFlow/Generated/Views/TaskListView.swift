@@ -22,34 +22,15 @@ struct TaskListView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color.gray.opacity(0.1).ignoresSafeArea()
-                
-                if taskManager.tasks.isEmpty {
-                    VStack(spacing: 20) {
-                        Image(systemName: "checklist")
-                            .font(.system(size: 60))
-                            .foregroundColor(.gray)
-                        Text("No tasks yet")
-                            .font(.title2)
-                            .foregroundColor(.gray)
-                    }
-                } else {
-                    List {
-                        ForEach(sortedTasks) { task in
-                            TaskRow(task: task)
-                                .swipeActions(allowsFullSwipe: false) {
-                                    Button(role: .destructive) {
-                                        taskManager.deleteTask(task)
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
-                        }
-                    }
-                    .listStyle(.insetGrouped)
+            ScrollView {
+                VStack(spacing: 20) {
+                    statsCards
+                    
+                    tasksList
                 }
+                .padding()
             }
+            .background(Color.gray.opacity(0.1))
             .navigationTitle("Tasks")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -76,6 +57,143 @@ struct TaskListView: View {
                 AddTaskView()
             }
         }
+    }
+    
+    private var statsCards: some View {
+        VStack(spacing: 16) {
+            HStack(spacing: 16) {
+                StatCard(
+                    title: "Completion Rate",
+                    value: String(format: "%.0f%%", taskManager.completionRate() * 100),
+                    icon: "chart.pie.fill",
+                    color: .indigo
+                )
+                
+                StatCard(
+                    title: "Total Tasks",
+                    value: "\(taskManager.tasks.count)",
+                    icon: "checklist",
+                    color: .orange
+                )
+            }
+            
+            priorityStats
+            projectStats
+        }
+    }
+    
+    private var priorityStats: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Tasks by Priority")
+                .font(.headline)
+            
+            ForEach(Priority.allCases, id: \.self) { priority in
+                let count = taskManager.tasks.filter { $0.priority == priority }.count
+                HStack {
+                    Circle()
+                        .fill(Color(priority.color))
+                        .frame(width: 12, height: 12)
+                    Text(priority.rawValue)
+                    Spacer()
+                    Text("\(count)")
+                        .foregroundStyle(.gray)
+                }
+            }
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(16)
+        .shadow(radius: 2)
+    }
+    
+    private var projectStats: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Project Status")
+                .font(.headline)
+            
+            ForEach(taskManager.projects) { project in
+                let tasks = taskManager.tasksForProject(project)
+                let completed = tasks.filter { $0.isCompleted }.count
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Text(project.name)
+                        Spacer()
+                        Text("\(completed)/\(tasks.count)")
+                            .foregroundStyle(.gray)
+                    }
+                    
+                    ProgressView(value: Double(completed), total: Double(tasks.count))
+                        .tint(Color(project.color))
+                }
+            }
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(16)
+        .shadow(radius: 2)
+    }
+    
+    private var tasksList: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Tasks")
+                .font(.headline)
+            
+            if taskManager.tasks.isEmpty {
+                VStack(spacing: 20) {
+                    Image(systemName: "checklist")
+                        .font(.system(size: 60))
+                        .foregroundColor(.gray)
+                    Text("No tasks yet")
+                        .font(.title2)
+                        .foregroundColor(.gray)
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+            } else {
+                ForEach(sortedTasks) { task in
+                    TaskRow(task: task)
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .shadow(radius: 1)
+                        .swipeActions(allowsFullSwipe: false) {
+                            Button(role: .destructive) {
+                                taskManager.deleteTask(task)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                }
+            }
+        }
+    }
+}
+
+struct StatCard: View {
+    let title: String
+    let value: String
+    let icon: String
+    let color: Color
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Image(systemName: icon)
+                    .foregroundStyle(color)
+                Text(title)
+                    .font(.subheadline)
+                    .foregroundStyle(.gray)
+            }
+            
+            Text(value)
+                .font(.title2)
+                .bold()
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .background(Color.white)
+        .cornerRadius(16)
+        .shadow(radius: 2)
     }
 }
 
@@ -124,5 +242,6 @@ struct TaskRow: View {
                 .fill(Color(task.priority.color))
                 .frame(width: 12, height: 12)
         }
+        .padding()
     }
 }

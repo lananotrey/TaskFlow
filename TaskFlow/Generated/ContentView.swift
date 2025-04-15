@@ -7,12 +7,6 @@ struct ContentView: View {
     var body: some View {
         if hasCompletedOnboarding {
             TabView {
-                StatsView()
-                    .tabItem {
-                        Label("Stats", systemImage: "chart.bar")
-                    }
-                    .environmentObject(taskManager)
-                
                 TaskListView()
                     .tabItem {
                         Label("Tasks", systemImage: "checklist")
