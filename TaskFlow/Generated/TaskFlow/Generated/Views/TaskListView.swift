@@ -4,7 +4,8 @@ struct TaskListView: View {
     @EnvironmentObject var taskManager: TaskManager
     @State private var showingAddTask = false
     @State private var selectedSortOption = SortOption.dueDate
-    @Environment(\.colorScheme) private var colorScheme
+    @State private var showingSuccessAlert = false
+    @Binding var selectedTab: Int
     
     enum SortOption {
         case dueDate, priority, title
@@ -54,7 +55,12 @@ struct TaskListView: View {
                 }
             }
             .sheet(isPresented: $showingAddTask) {
-                AddTaskView()
+                AddTaskView(selectedTab: $selectedTab, showingSuccessAlert: $showingSuccessAlert)
+            }
+            .alert("Task Added", isPresented: $showingSuccessAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text("Your new task has been successfully added.")
             }
         }
     }
@@ -150,94 +156,13 @@ struct TaskListView: View {
                 .padding()
             } else {
                 ForEach(sortedTasks) { task in
-                    TaskRow(task: task)
-                        .background(Color(UIColor.secondarySystemGroupedBackground))
-                        .cornerRadius(12)
-                        .swipeActions(allowsFullSwipe: false) {
-                            Button(role: .destructive) {
-                                taskManager.deleteTask(task)
-                            } label: {
-                                Label("Delete", systemImage: "trash")
-                            }
-                        }
-                }
-            }
-        }
-    }
-}
-
-struct StatCard: View {
-    let title: String
-    let value: String
-    let icon: String
-    let color: Color
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Image(systemName: icon)
-                    .foregroundStyle(color)
-                Text(title)
-                    .font(.subheadline)
-                    .foregroundStyle(.gray)
-            }
-            
-            Text(value)
-                .font(.title2)
-                .bold()
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color(UIColor.secondarySystemGroupedBackground))
-        .cornerRadius(16)
-    }
-}
-
-struct TaskRow: View {
-    @EnvironmentObject var taskManager: TaskManager
-    let task: TaskTask
-    
-    var body: some View {
-        HStack {
-            Button {
-                withAnimation {
-                    taskManager.toggleTaskCompletion(task)
-                }
-            } label: {
-                Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
-                    .foregroundStyle(task.isCompleted ? .green : .gray)
-            }
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(task.title)
-                    .strikethrough(task.isCompleted)
-                    .foregroundStyle(task.isCompleted ? .gray : .primary)
-                
-                HStack {
-                    Image(systemName: "calendar")
-                        .foregroundStyle(.gray)
-                    Text(task.dueDate.formatted(date: .abbreviated, time: .omitted))
-                        .foregroundStyle(.gray)
-                        .font(.caption)
-                    
-                    if let projectId = task.projectId,
-                       let project = taskManager.projects.first(where: { $0.id == projectId }) {
-                        Text(project.name)
-                            .font(.caption)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 2)
-                            .background(Color(project.color).opacity(0.2))
-                            .cornerRadius(4)
+                    NavigationLink(destination: TaskDetailView(task: task)) {
+                        TaskRow(task: task)
+                            .background(Color(UIColor.secondarySystemGroupedBackground))
+                            .cornerRadius(12)
                     }
                 }
             }
-            
-            Spacer()
-            
-            Circle()
-                .fill(Color(task.priority.color))
-                .frame(width: 12, height: 12)
         }
-        .padding()
     }
 }
