@@ -39,7 +39,7 @@ struct TaskListView: View {
                         showingAddTask = true
                     } label: {
                         Image(systemName: "plus.circle.fill")
-                            .foregroundStyle(.indigo)
+                            .foregroundColor(.indigo)
                     }
                 }
                 
@@ -50,7 +50,7 @@ struct TaskListView: View {
                         Button("Title") { selectedSortOption = .title }
                     } label: {
                         Label("Sort", systemImage: "arrow.up.arrow.down")
-                            .foregroundStyle(.indigo)
+                            .foregroundColor(.indigo)
                     }
                 }
             }
@@ -102,7 +102,7 @@ struct TaskListView: View {
                     Text(priority.rawValue)
                     Spacer()
                     Text("\(count)")
-                        .foregroundStyle(.gray)
+                        .foregroundColor(.gray)
                 }
             }
         }
@@ -125,7 +125,7 @@ struct TaskListView: View {
                         Text(project.name)
                         Spacer()
                         Text("\(completed)/\(tasks.count)")
-                            .foregroundStyle(.gray)
+                            .foregroundColor(.gray)
                     }
                     
                     ProgressView(value: Double(completed), total: Double(tasks.count))
