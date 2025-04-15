@@ -1,41 +1,33 @@
-import Foundation
+import SwiftUI
 
-struct Task: Identifiable, Codable {
-    let id: UUID
-    var title: String
-    var description: String
-    var dueDate: Date
-    var priority: Priority
-    var isCompleted: Bool
-    var projectId: UUID?
+struct ContentView: View {
+    @StateObject private var taskManager = TaskManager()
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     
-    init(id: UUID = UUID(), 
-         title: String, 
-         description: String = "", 
-         dueDate: Date = Date(), 
-         priority: Priority = .medium,
-         isCompleted: Bool = false,
-         projectId: UUID? = nil) {
-        self.id = id
-        self.title = title
-        self.description = description
-        self.dueDate = dueDate
-        self.priority = priority
-        self.isCompleted = isCompleted
-        self.projectId = projectId
-    }
-}
-
-enum Priority: String, CaseIterable, Codable {
-    case low = "Low"
-    case medium = "Medium"
-    case high = "High"
-    
-    var color: String {
-        switch self {
-        case .low: return "mint"
-        case .medium: return "orange"
-        case .high: return "pink"
+    var body: some View {
+        if hasCompletedOnboarding {
+            TabView {
+                TaskListView()
+                    .tabItem {
+                        Label("Tasks", systemImage: "checklist")
+                    }
+                    .environmentObject(taskManager)
+                
+                ProjectsView()
+                    .tabItem {
+                        Label("Projects", systemImage: "folder")
+                    }
+                    .environmentObject(taskManager)
+                
+                StatsView()
+                    .tabItem {
+                        Label("Stats", systemImage: "chart.bar")
+                    }
+                    .environmentObject(taskManager)
+            }
+            .tint(.indigo)
+        } else {
+            OnboardingView()
         }
     }
 }
