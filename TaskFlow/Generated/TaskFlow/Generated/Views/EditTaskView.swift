@@ -99,3 +99,8 @@ struct EditTaskView: View {
             projectId: selectedProject?.id
         )
         
+        if let index = taskManager.tasks.firstIndex(where: { $0.id == task.id }) {
+            taskManager.tasks[index] = updatedTask
+        }
+    }
+}
