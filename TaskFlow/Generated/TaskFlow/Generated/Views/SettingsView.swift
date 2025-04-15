@@ -1,7 +1,9 @@
 import SwiftUI
+import StoreKit
 
 struct SettingsView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         NavigationStack {
@@ -11,7 +13,7 @@ struct SettingsView: View {
                 }
                 
                 Section("Support") {
-                    Button(action: rateApp) {
+                    Button(action: requestReview) {
                         HStack {
                             Text("Rate this app")
                             Spacer()
@@ -66,9 +68,9 @@ struct SettingsView: View {
         }
     }
     
-    private func rateApp() {
-        guard let appStoreURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID") else { return }
-        UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
+    private func requestReview() {
+        guard let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
+        SKStoreReviewController.requestReview(in: scene)
     }
     
     private func shareApp() {
