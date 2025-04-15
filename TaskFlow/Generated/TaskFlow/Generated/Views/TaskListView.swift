@@ -56,7 +56,7 @@ struct TaskListView: View {
             }
             .sheet(isPresented: $showingAddTask) {
                 NavigationView {
-                    AddTaskView(selectedTab: $selectedTab, showingSuccessAlert: $showingSuccessAlert)
+                    AddTaskView()
                 }
             }
             .alert("Task Added", isPresented: $showingSuccessAlert) {
