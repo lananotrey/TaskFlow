@@ -3,6 +3,7 @@ import SwiftUI
 struct ProjectsView: View {
     @EnvironmentObject var taskManager: TaskManager
     @State private var showingAddProject = false
+    @State private var editingProject: Project?
     
     let columns = [
         GridItem(.flexible()),
@@ -28,6 +29,19 @@ struct ProjectsView: View {
                         LazyVGrid(columns: columns, spacing: 16) {
                             ForEach(taskManager.projects) { project in
                                 ProjectCard(project: project)
+                                    .contextMenu {
+                                        Button {
+                                            editingProject = project
+                                        } label: {
+                                            Label("Edit", systemImage: "pencil")
+                                        }
+                                        
+                                        Button(role: .destructive) {
+                                            taskManager.deleteProject(project)
+                                        } label: {
+                                            Label("Delete", systemImage: "trash")
+                                        }
+                                    }
                             }
                         }
                         .padding()
@@ -45,6 +59,9 @@ struct ProjectsView: View {
             }
             .sheet(isPresented: $showingAddProject) {
                 AddProjectView()
+            }
+            .sheet(item: $editingProject) { project in
+                EditProjectView(project: project)
             }
         }
     }
