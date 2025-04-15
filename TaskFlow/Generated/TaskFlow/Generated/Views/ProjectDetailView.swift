@@ -37,7 +37,7 @@ struct ProjectDetailView: View {
                         .foregroundStyle(.gray)
                 } else {
                     ForEach(projectTasks) { task in
-                        TaskRow(task: task)
+                        TaskRowView(task: task)
                     }
                     .onDelete { indexSet in
                         for index in indexSet {
