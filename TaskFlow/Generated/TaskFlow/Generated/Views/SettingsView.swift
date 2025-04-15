@@ -18,7 +18,9 @@ struct SettingsView: View {
                             Image(systemName: "star.fill")
                                 .foregroundStyle(.yellow)
                         }
+                        .foregroundStyle(.primary)
                     }
+                    .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
                     
                     Button(action: shareApp) {
                         HStack {
@@ -27,7 +29,9 @@ struct SettingsView: View {
                             Image(systemName: "square.and.arrow.up")
                                 .foregroundStyle(.blue)
                         }
+                        .foregroundStyle(.primary)
                     }
+                    .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
                     
                     NavigationLink(destination: TermsOfUseView()) {
                         HStack {

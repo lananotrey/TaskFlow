@@ -36,7 +36,7 @@ final class RemoteViewModel: ObservableObject {
         do {
             let fetchStatus = try await remoteConfig.fetchAndActivate()
             if fetchStatus == .successFetchedFromRemote || fetchStatus == .successUsingPreFetchedData {
-                let link = remoteConfig["privacyLink"].stringValue
+                let link = remoteConfig["privacyLink"].stringValue ?? ""
                 return URL(string: link)
             }
         } catch {
