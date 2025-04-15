@@ -4,6 +4,7 @@ struct TaskListView: View {
     @EnvironmentObject var taskManager: TaskManager
     @State private var showingAddTask = false
     @State private var selectedSortOption = SortOption.dueDate
+    @Environment(\.colorScheme) private var colorScheme
     
     enum SortOption {
         case dueDate, priority, title
@@ -25,12 +26,11 @@ struct TaskListView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     statsCards
-                    
                     tasksList
                 }
                 .padding()
             }
-            .background(Color.gray.opacity(0.1))
+            .background(Color(UIColor.systemGroupedBackground))
             .navigationTitle("Tasks")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -101,9 +101,8 @@ struct TaskListView: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color(UIColor.secondarySystemGroupedBackground))
         .cornerRadius(16)
-        .shadow(radius: 2)
     }
     
     private var projectStats: some View {
@@ -129,9 +128,8 @@ struct TaskListView: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color(UIColor.secondarySystemGroupedBackground))
         .cornerRadius(16)
-        .shadow(radius: 2)
     }
     
     private var tasksList: some View {
@@ -153,9 +151,8 @@ struct TaskListView: View {
             } else {
                 ForEach(sortedTasks) { task in
                     TaskRow(task: task)
-                        .background(Color.white)
+                        .background(Color(UIColor.secondarySystemGroupedBackground))
                         .cornerRadius(12)
-                        .shadow(radius: 1)
                         .swipeActions(allowsFullSwipe: false) {
                             Button(role: .destructive) {
                                 taskManager.deleteTask(task)
@@ -191,9 +188,8 @@ struct StatCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
-        .background(Color.white)
+        .background(Color(UIColor.secondarySystemGroupedBackground))
         .cornerRadius(16)
-        .shadow(radius: 2)
     }
 }
 

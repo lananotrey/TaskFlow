@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var taskManager = TaskManager()
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @AppStorage("isDarkMode") private var isDarkMode = false
     
     var body: some View {
         if hasCompletedOnboarding {
@@ -25,6 +26,7 @@ struct ContentView: View {
                     }
             }
             .tint(.indigo)
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         } else {
             OnboardingView()
         }

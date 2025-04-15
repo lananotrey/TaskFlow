@@ -12,7 +12,7 @@ struct ProjectsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.gray.opacity(0.1).ignoresSafeArea()
+                Color(UIColor.systemGroupedBackground).ignoresSafeArea()
                 
                 if taskManager.projects.isEmpty {
                     VStack(spacing: 20) {
@@ -76,9 +76,8 @@ struct ProjectCard: View {
                     .tint(Color(project.color))
             }
             .padding()
-            .background(Color.white)
+            .background(Color(UIColor.secondarySystemGroupedBackground))
             .cornerRadius(12)
-            .shadow(radius: 2)
         }
     }
 }
