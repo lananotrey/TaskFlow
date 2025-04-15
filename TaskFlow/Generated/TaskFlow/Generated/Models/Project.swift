@@ -1,6 +1,6 @@
 import Foundation
 
-struct Project: Identifiable, Codable {
+struct Project: Identifiable, Codable, Hashable {
     let id: UUID
     var name: String
     var color: String
@@ -9,5 +9,13 @@ struct Project: Identifiable, Codable {
         self.id = id
         self.name = name
         self.color = color
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: Project, rhs: Project) -> Bool {
+        lhs.id == rhs.id
     }
 }
