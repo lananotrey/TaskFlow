@@ -9,7 +9,7 @@ struct TaskListView: View {
         case dueDate, priority, title
     }
     
-    var sortedTasks: [Task] {
+    var sortedTasks: [TaskTask] {
         switch selectedSortOption {
         case .dueDate:
             return taskManager.tasks.sorted { $0.dueDate < $1.dueDate }
@@ -81,7 +81,7 @@ struct TaskListView: View {
 
 struct TaskRow: View {
     @EnvironmentObject var taskManager: TaskManager
-    let task: Task
+    let task: TaskTask
     
     var body: some View {
         HStack {

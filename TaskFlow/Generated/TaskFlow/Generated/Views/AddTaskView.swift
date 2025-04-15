@@ -59,7 +59,7 @@ struct AddTaskView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
-                        let newTask = Task(
+                        let newTask = TaskTask(
                             title: title,
                             description: description,
                             dueDate: dueDate,
