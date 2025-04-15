@@ -39,7 +39,7 @@ struct TaskListView: View {
                         showingAddTask = true
                     } label: {
                         Image(systemName: "plus.circle.fill")
-                            .foregroundColor(.indigo)
+                            .foregroundStyle(.indigo)
                     }
                 }
                 
@@ -50,7 +50,7 @@ struct TaskListView: View {
                         Button("Title") { selectedSortOption = .title }
                     } label: {
                         Label("Sort", systemImage: "arrow.up.arrow.down")
-                            .foregroundColor(.indigo)
+                            .foregroundStyle(.indigo)
                     }
                 }
             }
