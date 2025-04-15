@@ -31,7 +31,7 @@ struct TaskListView: View {
                 }
                 .padding()
             }
-            .background(Color(UIColor.systemGroupedBackground))
+            .background(Color(uiColor: .systemGroupedBackground))
             .navigationTitle("Tasks")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -107,7 +107,7 @@ struct TaskListView: View {
             }
         }
         .padding()
-        .background(Color(UIColor.secondarySystemGroupedBackground))
+        .background(Color(uiColor: .secondarySystemGroupedBackground))
         .cornerRadius(16)
     }
     
@@ -134,7 +134,7 @@ struct TaskListView: View {
             }
         }
         .padding()
-        .background(Color(UIColor.secondarySystemGroupedBackground))
+        .background(Color(uiColor: .secondarySystemGroupedBackground))
         .cornerRadius(16)
     }
     
@@ -158,7 +158,7 @@ struct TaskListView: View {
                 ForEach(sortedTasks) { task in
                     NavigationLink(destination: TaskDetailView(task: task)) {
                         TaskRowView(task: task)
-                            .background(Color(UIColor.secondarySystemGroupedBackground))
+                            .background(Color(uiColor: .secondarySystemGroupedBackground))
                             .cornerRadius(12)
                     }
                 }
