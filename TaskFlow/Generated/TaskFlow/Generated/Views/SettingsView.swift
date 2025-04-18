@@ -13,7 +13,7 @@ struct SettingsView: View {
                 }
                 
                 Section("Support") {
-                    Button(action: requestReview) {
+                    Link(destination: URL(string: "itms-apps://itunes.apple.com/app/id\(Constants.appStoreId)")!) {
                         HStack {
                             Text("Rate this app")
                             Spacer()
@@ -68,13 +68,8 @@ struct SettingsView: View {
         }
     }
     
-    private func requestReview() {
-        guard let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
-        SKStoreReviewController.requestReview(in: scene)
-    }
-    
     private func shareApp() {
-        let appURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID")!
+        let appURL = URL(string: "https://apps.apple.com/app/id\(Constants.appStoreId)")!
         let activityVC = UIActivityViewController(
             activityItems: [appURL],
             applicationActivities: nil
