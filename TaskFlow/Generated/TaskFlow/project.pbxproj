@@ -48,7 +48,7 @@
                     "-framework",
                     "Firebase",
                     "-framework",
-                    "FirebaseCore",
+                    "FirebaseCore", 
                     "-framework",
                     "FirebaseAnalytics",
                     "-framework",
