@@ -63,16 +63,18 @@ struct AddTaskView: View {
                     Button("Add") {
                         saveTask()
                         showingSaveAlert = true
+                        resetForm()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            showingSaveAlert = false
+                            dismiss()
+                            selectedTab = 0
+                        }
                     }
                     .disabled(title.isEmpty)
                 }
             }
             .alert("Task Added", isPresented: $showingSaveAlert) {
-                Button("OK") {
-                    resetForm()
-                    dismiss()
-                    selectedTab = 0
-                }
             } message: {
                 Text("Your task has been successfully added.")
             }
