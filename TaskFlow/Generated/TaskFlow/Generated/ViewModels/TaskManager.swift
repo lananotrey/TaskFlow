@@ -9,12 +9,7 @@ class TaskManager: ObservableObject {
     }
     
     private func loadSampleData() {
-        projects = [
-            Project(name: "Personal", color: "indigo"),
-            Project(name: "Work", color: "pink"),
-            Project(name: "Shopping", color: "mint")
-        ]
-        
+        projects = []
         tasks = []
     }
     
