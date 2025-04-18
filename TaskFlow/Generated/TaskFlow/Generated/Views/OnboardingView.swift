@@ -3,6 +3,7 @@ import SwiftUI
 struct OnboardingView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @State private var currentPage = 0
+    @State private var iconScale: CGFloat = 1.0
     
     let pages = [
         OnboardingPage(
@@ -35,7 +36,12 @@ struct OnboardingView: View {
                             Image(systemName: pages[index].imageName)
                                 .font(.system(size: 80))
                                 .foregroundStyle(.indigo)
-                                .symbolEffect(.bounce, options: .repeating)
+                                .scaleEffect(iconScale)
+                                .onAppear {
+                                    withAnimation(.easeInOut(duration: 1.0).repeatForever()) {
+                                        iconScale = 1.2
+                                    }
+                                }
                             
                             VStack(spacing: 16) {
                                 Text(pages[index].title)
