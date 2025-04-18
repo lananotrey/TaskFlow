@@ -7,5 +7,6 @@ target 'TaskFlow' do
   pod 'Firebase/RemoteConfig'
   pod 'Firebase/Messaging'
   pod 'Firebase/Analytics'
+  pod 'FirebaseRemoteConfigInternal'
 
 end

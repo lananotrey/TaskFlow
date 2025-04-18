@@ -34,11 +34,10 @@
                 SWIFT_EMIT_LOC_STRINGS = YES;
                 SWIFT_VERSION = 5.0;
                 TARGETED_DEVICE_FAMILY = "1,2";
-                OTHER_LDFLAGS = (
+                FRAMEWORK_SEARCH_PATHS = (
                     "$(inherited)",
-                    "-ObjC",
-                    "-framework",
-                    "FirebaseRemoteConfigInternal"
+                    "${PODS_ROOT}/FirebaseRemoteConfigInternal",
+                    "${PODS_XCFRAMEWORKS_BUILD_DIR}/FirebaseRemoteConfigInternal"
                 );
             };
             name = Debug;
