@@ -6,60 +6,121 @@
     objectVersion = 56;
     objects = {
         /* Begin PBXBuildFile section */
-        // ... Existing build files ...
-        
+        DA7B6A012B2B0E0C00D0E7F1 /* TaskFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A002B2B0E0C00D0E7F1 /* TaskFlowApp.swift */; };
+        DA7B6A032B2B0E0C00D0E7F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A022B2B0E0C00D0E7F1 /* ContentView.swift */; };
+        DA7B6A052B2B0E0D00D0E7F1 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A042B2B0E0D00D0E7F1 /* Assets.xcassets */; };
+        DA7B6A082B2B0E0D00D0E7F1 /* Preview Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A072B2B0E0D00D0E7F1 /* Preview Assets.xcassets */; };
+        /* Models */
+        DA7B6A122B2B0E3D00D0E7F1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A112B2B0E3D00D0E7F1 /* Task.swift */; };
+        DA7B6A142B2B0E4D00D0E7F1 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A132B2B0E4D00D0E7F1 /* Project.swift */; };
+        /* ViewModels */
+        DA7B6A162B2B0E5E00D0E7F1 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A152B2B0E5E00D0E7F1 /* TaskManager.swift */; };
+        /* Views */
+        DA7B6A182B2B0E7000D0E7F1 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A172B2B0E7000D0E7F1 /* TaskListView.swift */; };
+        DA7B6A1A2B2B0E8200D0E7F1 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A192B2B0E8200D0E7F1 /* ProjectsView.swift */; };
+        DA7B6A1C2B2B0E9400D0E7F1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A1B2B2B0E9400D0E7F1 /* SettingsView.swift */; };
+        /* Components */
+        DA7B6A1E2B2B0EA600D0E7F1 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A1D2B2B0EA600D0E7F1 /* TaskRowView.swift */; };
+        DA7B6A202B2B0EB800D0E7F1 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A1F2B2B0EB800D0E7F1 /* StatCardView.swift */; };
+        /* Firebase */
+        DA7B6A222B2B0ECA00D0E7F1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DA7B6A212B2B0ECA00D0E7F1 /* FirebaseAnalytics */; };
+        DA7B6A242B2B0ECA00D0E7F1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DA7B6A232B2B0ECA00D0E7F1 /* FirebaseMessaging */; };
+        DA7B6A262B2B0ECA00D0E7F1 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = DA7B6A252B2B0ECA00D0E7F1 /* FirebaseRemoteConfig */; };
+        /* Extensions */
+        DA7B6A282B2B0EF100D0E7F1 /* AppRatingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A272B2B0EF100D0E7F1 /* AppRatingManager.swift */; };
+        DA7B6A2A2B2B0EF900D0E7F1 /* RemoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A292B2B0EF900D0E7F1 /* RemoteScreen.swift */; };
+        DA7B6A2C2B2B0F0100D0E7F1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A2B2B2B0F0100D0E7F1 /* NotificationService.swift */; };
+        DA7B6A2E2B2B0F0900D0E7F1 /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A2D2B2B0F0900D0E7F1 /* BrowserView.swift */; };
+        DA7B6A302B2B0F1100D0E7F1 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A2F2B2B0F1100D0E7F1 /* LocalStorage.swift */; };
+        DA7B6A322B2B0F1900D0E7F1 /* RemoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A312B2B0F1900D0E7F1 /* RemoteViewModel.swift */; };
+        DA7B6A342B2B0F2100D0E7F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A332B2B0F2100D0E7F1 /* AppDelegate.swift */; };
         /* End PBXBuildFile section */
-        
+
         /* Begin PBXFileReference section */
-        // ... Existing file references ...
-        DA7B6A272B2B0EF000D0E7F1 /* TaskFlow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskFlow.entitlements; sourceTree = "<group>"; };
+        DA7B69FD2B2B0E0C00D0E7F1 /* TaskFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+        DA7B6A002B2B0E0C00D0E7F1 /* TaskFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFlowApp.swift; sourceTree = "<group>"; };
+        DA7B6A022B2B0E0C00D0E7F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+        DA7B6A042B2B0E0D00D0E7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+        DA7B6A072B2B0E0D00D0E7F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+        /* Models */
+        DA7B6A112B2B0E3D00D0E7F1 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+        DA7B6A132B2B0E4D00D0E7F1 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+        /* ViewModels */
+        DA7B6A152B2B0E5E00D0E7F1 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+        /* Views */
+        DA7B6A172B2B0E7000D0E7F1 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+        DA7B6A192B2B0E8200D0E7F1 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+        DA7B6A1B2B2B0E9400D0E7F1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+        /* Components */
+        DA7B6A1D2B2B0EA600D0E7F1 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
+        DA7B6A1F2B2B0EB800D0E7F1 /* StatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
+        /* Extensions */
+        DA7B6A272B2B0EF100D0E7F1 /* AppRatingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRatingManager.swift; sourceTree = "<group>"; };
+        DA7B6A292B2B0EF900D0E7F1 /* RemoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteScreen.swift; sourceTree = "<group>"; };
+        DA7B6A2B2B2B0F0100D0E7F1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+        DA7B6A2D2B2B0F0900D0E7F1 /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
+        DA7B6A2F2B2B0F1100D0E7F1 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+        DA7B6A312B2B0F1900D0E7F1 /* RemoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewModel.swift; sourceTree = "<group>"; };
+        DA7B6A332B2B0F2100D0E7F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
         /* End PBXFileReference section */
-        
+
         /* Begin PBXFrameworksBuildPhase section */
         DA7B69FA2B2B0E0C00D0E7F1 /* Frameworks */ = {
             isa = PBXFrameworksBuildPhase;
             buildActionMask = 2147483647;
             files = (
-                // ... Existing framework files ...
+                DA7B6A242B2B0ECA00D0E7F1 /* FirebaseMessaging in Frameworks */,
+                DA7B6A222B2B0ECA00D0E7F1 /* FirebaseAnalytics in Frameworks */,
+                DA7B6A262B2B0ECA00D0E7F1 /* FirebaseRemoteConfig in Frameworks */,
             );
             runOnlyForDeploymentPostprocessing = 0;
         };
         /* End PBXFrameworksBuildPhase section */
-        
+
         /* Begin PBXGroup section */
+        DA7B69F42B2B0E0C00D0E7F1 = {
+            isa = PBXGroup;
+            children = (
+                DA7B69FF2B2B0E0C00D0E7F1 /* TaskFlow */,
+                DA7B69FE2B2B0E0C00D0E7F1 /* Products */,
+            );
+            sourceTree = "<group>";
+        };
+
+        DA7B69FE2B2B0E0C00D0E7F1 /* Products */ = {
+            isa = PBXGroup;
+            children = (
+                DA7B69FD2B2B0E0C00D0E7F1 /* TaskFlow.app */,
+            );
+            name = Products;
+            sourceTree = "<group>";
+        };
+
         DA7B69FF2B2B0E0C00D0E7F1 /* TaskFlow */ = {
             isa = PBXGroup;
             children = (
-                DA7B6A272B2B0EF000D0E7F1 /* TaskFlow.entitlements */,
-                // ... Existing children ...
+                DA7B6A0E2B2B0E2000D0E7F1 /* Models */,
+                DA7B6A0F2B2B0E2700D0E7F1 /* ViewModels */,
+                DA7B6A102B2B0E2F00D0E7F1 /* Views */,
+                DA7B6A252B2B0ED100D0E7F1 /* Extensions */,
+                DA7B6A002B2B0E0C00D0E7F1 /* TaskFlowApp.swift */,
+                DA7B6A022B2B0E0C00D0E7F1 /* ContentView.swift */,
+                DA7B6A042B2B0E0D00D0E7F1 /* Assets.xcassets */,
+                DA7B6A062B2B0E0D00D0E7F1 /* Preview Content */,
             );
             path = TaskFlow;
             sourceTree = "<group>";
         };
-        /* End PBXGroup section */
-        
-        /* Begin XCBuildConfiguration section */
-        DA7B6A092B2B0E0D00D0E7F1 /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                // ... Other build settings ...
-                CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
-                CODE_SIGN_ENTITLEMENTS = TaskFlow/TaskFlow.entitlements;
-                // ... Rest of build settings ...
-            };
-            name = Debug;
+
+        DA7B6A062B2B0E0D00D0E7F1 /* Preview Content */ = {
+            isa = PBXGroup;
+            children = (
+                DA7B6A072B2B0E0D00D0E7F1 /* Preview Assets.xcassets */,
+            );
+            path = "Preview Content";
+            sourceTree = "<group>";
         };
-        DA7B6A0A2B2B0E0D00D0E7F1 /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                // ... Other build settings ...
-                CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
-                CODE_SIGN_ENTITLEMENTS = TaskFlow/TaskFlow.entitlements;
-                // ... Rest of build settings ...
-            };
-            name = Release;
-        };
-        /* End XCBuildConfiguration section */
-    };
-    rootObject = DA7B69F52B2B0E0C00D0E7F1 /* Project object */;
-}
+
+        DA7B6A0E2B2B0E2000D0E7F1 /* Models */ = {
+            isa = PBXGroup;
+            children
