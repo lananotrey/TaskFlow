@@ -98,28 +98,28 @@ struct TaskDetailView: View {
     }
     
     private var actionsSection: some View {
-        HStack {
-            Button(action: shareTask) {
-                Label("Share", systemImage: "square.and.arrow.up")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.bordered)
-            .tint(.indigo)
+        HStack(spacing: 12) {
+            ActionButton(
+                title: "Share",
+                icon: "square.and.arrow.up",
+                color: .indigo,
+                action: shareTask
+            )
             
-            Button(action: { showingEditSheet = true }) {
-                Label("Edit", systemImage: "pencil")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.bordered)
-            .tint(.orange)
+            ActionButton(
+                title: "Edit",
+                icon: "pencil",
+                color: .orange,
+                action: { showingEditSheet = true }
+            )
             
-            Button(role: .destructive, action: { showingDeleteAlert = true }) {
-                Label("Delete", systemImage: "trash")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.bordered)
+            ActionButton(
+                title: "Delete",
+                icon: "trash",
+                color: .red,
+                action: { showingDeleteAlert = true }
+            )
         }
-        .labelStyle(.iconOnly)
         .padding()
         .background(Color(UIColor.secondarySystemGroupedBackground))
         .cornerRadius(16)
@@ -159,5 +159,27 @@ struct DetailRow: View {
             Text(value)
                 .font(.body)
         }
+    }
+}
+
+struct ActionButton: View {
+    let title: String
+    let icon: String
+    let color: Color
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            VStack {
+                Image(systemName: icon)
+                    .font(.system(size: 20))
+                Text(title)
+                    .font(.caption)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 12)
+        }
+        .buttonStyle(.bordered)
+        .tint(color)
     }
 }
