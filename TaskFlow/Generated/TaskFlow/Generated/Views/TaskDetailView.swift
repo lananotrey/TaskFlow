@@ -99,26 +99,44 @@ struct TaskDetailView: View {
     
     private var actionsSection: some View {
         HStack(spacing: 12) {
-            ActionButton(
-                title: "Share",
-                icon: "square.and.arrow.up",
-                color: .indigo,
-                action: shareTask
-            )
+            Button(action: shareTask) {
+                VStack {
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.system(size: 20))
+                    Text("Share")
+                        .font(.caption)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+            }
+            .buttonStyle(.bordered)
+            .tint(.indigo)
             
-            ActionButton(
-                title: "Edit",
-                icon: "pencil",
-                color: .orange,
-                action: { showingEditSheet = true }
-            )
+            Button(action: { showingEditSheet = true }) {
+                VStack {
+                    Image(systemName: "pencil")
+                        .font(.system(size: 20))
+                    Text("Edit")
+                        .font(.caption)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+            }
+            .buttonStyle(.bordered)
+            .tint(.orange)
             
-            ActionButton(
-                title: "Delete",
-                icon: "trash",
-                color: .red,
-                action: { showingDeleteAlert = true }
-            )
+            Button(action: { showingDeleteAlert = true }) {
+                VStack {
+                    Image(systemName: "trash")
+                        .font(.system(size: 20))
+                    Text("Delete")
+                        .font(.caption)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+            }
+            .buttonStyle(.bordered)
+            .tint(.red)
         }
         .padding()
         .background(Color(UIColor.secondarySystemGroupedBackground))
@@ -159,27 +177,5 @@ struct DetailRow: View {
             Text(value)
                 .font(.body)
         }
-    }
-}
-
-struct ActionButton: View {
-    let title: String
-    let icon: String
-    let color: Color
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            VStack {
-                Image(systemName: icon)
-                    .font(.system(size: 20))
-                Text(title)
-                    .font(.caption)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 12)
-        }
-        .buttonStyle(.bordered)
-        .tint(color)
     }
 }
