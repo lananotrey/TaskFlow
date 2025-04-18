@@ -6,179 +6,60 @@
     objectVersion = 56;
     objects = {
         /* Begin PBXBuildFile section */
-        DA7B6A012B2B0E0C00D0E7F1 /* TaskFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A002B2B0E0C00D0E7F1 /* TaskFlowApp.swift */; };
-        DA7B6A032B2B0E0C00D0E7F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A022B2B0E0C00D0E7F1 /* ContentView.swift */; };
-        DA7B6A052B2B0E0D00D0E7F1 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A042B2B0E0D00D0E7F1 /* Assets.xcassets */; };
-        DA7B6A082B2B0E0D00D0E7F1 /* Preview Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A072B2B0E0D00D0E7F1 /* Preview Assets.xcassets */; };
-        /* Models */
-        DA7B6A122B2B0E3D00D0E7F1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A112B2B0E3D00D0E7F1 /* Task.swift */; };
-        DA7B6A142B2B0E4D00D0E7F1 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A132B2B0E4D00D0E7F1 /* Project.swift */; };
-        /* ViewModels */
-        DA7B6A162B2B0E5E00D0E7F1 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A152B2B0E5E00D0E7F1 /* TaskManager.swift */; };
-        /* Views */
-        DA7B6A182B2B0E7000D0E7F1 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A172B2B0E7000D0E7F1 /* TaskListView.swift */; };
-        DA7B6A1A2B2B0E8200D0E7F1 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A192B2B0E8200D0E7F1 /* ProjectsView.swift */; };
-        DA7B6A1C2B2B0E9400D0E7F1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A1B2B2B0E9400D0E7F1 /* SettingsView.swift */; };
-        /* Components */
-        DA7B6A1E2B2B0EA600D0E7F1 /* TaskRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A1D2B2B0EA600D0E7F1 /* TaskRowView.swift */; };
-        DA7B6A202B2B0EB800D0E7F1 /* StatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7B6A1F2B2B0EB800D0E7F1 /* StatCardView.swift */; };
-        /* Firebase */
-        DA7B6A222B2B0ECA00D0E7F1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DA7B6A212B2B0ECA00D0E7F1 /* FirebaseAnalytics */; };
-        DA7B6A242B2B0ECA00D0E7F1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DA7B6A232B2B0ECA00D0E7F1 /* FirebaseMessaging */; };
-        DA7B6A262B2B0ECA00D0E7F1 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = DA7B6A252B2B0ECA00D0E7F1 /* FirebaseRemoteConfig */; };
+        // ... Existing build files ...
+        
         /* End PBXBuildFile section */
-
+        
         /* Begin PBXFileReference section */
-        DA7B69FD2B2B0E0C00D0E7F1 /* TaskFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
-        DA7B6A002B2B0E0C00D0E7F1 /* TaskFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFlowApp.swift; sourceTree = "<group>"; };
-        DA7B6A022B2B0E0C00D0E7F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-        DA7B6A042B2B0E0D00D0E7F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-        DA7B6A072B2B0E0D00D0E7F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-        /* Models */
-        DA7B6A112B2B0E3D00D0E7F1 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-        DA7B6A132B2B0E4D00D0E7F1 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-        /* ViewModels */
-        DA7B6A152B2B0E5E00D0E7F1 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
-        /* Views */
-        DA7B6A172B2B0E7000D0E7F1 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
-        DA7B6A192B2B0E8200D0E7F1 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
-        DA7B6A1B2B2B0E9400D0E7F1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-        /* Components */
-        DA7B6A1D2B2B0EA600D0E7F1 /* TaskRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowView.swift; sourceTree = "<group>"; };
-        DA7B6A1F2B2B0EB800D0E7F1 /* StatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCardView.swift; sourceTree = "<group>"; };
+        // ... Existing file references ...
+        DA7B6A272B2B0EF000D0E7F1 /* TaskFlow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskFlow.entitlements; sourceTree = "<group>"; };
         /* End PBXFileReference section */
-
+        
         /* Begin PBXFrameworksBuildPhase section */
         DA7B69FA2B2B0E0C00D0E7F1 /* Frameworks */ = {
             isa = PBXFrameworksBuildPhase;
             buildActionMask = 2147483647;
             files = (
-                DA7B6A242B2B0ECA00D0E7F1 /* FirebaseMessaging in Frameworks */,
-                DA7B6A222B2B0ECA00D0E7F1 /* FirebaseAnalytics in Frameworks */,
-                DA7B6A262B2B0ECA00D0E7F1 /* FirebaseRemoteConfig in Frameworks */,
+                // ... Existing framework files ...
             );
             runOnlyForDeploymentPostprocessing = 0;
         };
         /* End PBXFrameworksBuildPhase section */
-
+        
         /* Begin PBXGroup section */
-        DA7B69F42B2B0E0C00D0E7F1 = {
-            isa = PBXGroup;
-            children = (
-                DA7B69FF2B2B0E0C00D0E7F1 /* TaskFlow */,
-                DA7B69FE2B2B0E0C00D0E7F1 /* Products */,
-            );
-            sourceTree = "<group>";
-        };
-
-        DA7B69FE2B2B0E0C00D0E7F1 /* Products */ = {
-            isa = PBXGroup;
-            children = (
-                DA7B69FD2B2B0E0C00D0E7F1 /* TaskFlow.app */,
-            );
-            name = Products;
-            sourceTree = "<group>";
-        };
-
         DA7B69FF2B2B0E0C00D0E7F1 /* TaskFlow */ = {
             isa = PBXGroup;
             children = (
-                DA7B6A0E2B2B0E2000D0E7F1 /* Models */,
-                DA7B6A0F2B2B0E2700D0E7F1 /* ViewModels */,
-                DA7B6A102B2B0E2F00D0E7F1 /* Views */,
-                DA7B6A002B2B0E0C00D0E7F1 /* TaskFlowApp.swift */,
-                DA7B6A022B2B0E0C00D0E7F1 /* ContentView.swift */,
-                DA7B6A042B2B0E0D00D0E7F1 /* Assets.xcassets */,
-                DA7B6A062B2B0E0D00D0E7F1 /* Preview Content */,
+                DA7B6A272B2B0EF000D0E7F1 /* TaskFlow.entitlements */,
+                // ... Existing children ...
             );
             path = TaskFlow;
             sourceTree = "<group>";
         };
-
-        DA7B6A062B2B0E0D00D0E7F1 /* Preview Content */ = {
-            isa = PBXGroup;
-            children = (
-                DA7B6A072B2B0E0D00D0E7F1 /* Preview Assets.xcassets */,
-            );
-            path = "Preview Content";
-            sourceTree = "<group>";
-        };
-
-        DA7B6A0E2B2B0E2000D0E7F1 /* Models */ = {
-            isa = PBXGroup;
-            children = (
-                DA7B6A112B2B0E3D00D0E7F1 /* Task.swift */,
-                DA7B6A132B2B0E4D00D0E7F1 /* Project.swift */,
-            );
-            path = Models;
-            sourceTree = "<group>";
-        };
-
-        DA7B6A0F2B2B0E2700D0E7F1 /* ViewModels */ = {
-            isa = PBXGroup;
-            children = (
-                DA7B6A152B2B0E5E00D0E7F1 /* TaskManager.swift */,
-            );
-            path = ViewModels;
-            sourceTree = "<group>";
-        };
-
-        DA7B6A102B2B0E2F00D0E7F1 /* Views */ = {
-            isa = PBXGroup;
-            children = (
-                DA7B6A172B2B0E7000D0E7F1 /* TaskListView.swift */,
-                DA7B6A192B2B0E8200D0E7F1 /* ProjectsView.swift */,
-                DA7B6A1B2B2B0E9400D0E7F1 /* SettingsView.swift */,
-                /* Components */
-                DA7B6A1D2B2B0EA600D0E7F1 /* TaskRowView.swift */,
-                DA7B6A1F2B2B0EB800D0E7F1 /* StatCardView.swift */,
-            );
-            path = Views;
-            sourceTree = "<group>";
-        };
         /* End PBXGroup section */
-
-        /* Begin PBXNativeTarget section */
-        DA7B69FC2B2B0E0C00D0E7F1 /* TaskFlow */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = DA7B6A0B2B2B0E0D00D0E7F1 /* Build configuration list for PBXNativeTarget "TaskFlow" */;
-            buildPhases = (
-                DA7B69F92B2B0E0C00D0E7F1 /* Sources */,
-                DA7B69FA2B2B0E0C00D0E7F1 /* Frameworks */,
-                DA7B69FB2B2B0E0C00D0E7F1 /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-            );
-            name = TaskFlow;
-            packageProductDependencies = (
-                DA7B6A212B2B0ECA00D0E7F1 /* FirebaseAnalytics */,
-                DA7B6A232B2B0ECA00D0E7F1 /* FirebaseMessaging */,
-                DA7B6A252B2B0ECA00D0E7F1 /* FirebaseRemoteConfig */,
-            );
-            productName = TaskFlow;
-            productReference = DA7B69FD2B2B0E0C00D0E7F1 /* TaskFlow.app */;
-            productType = "com.apple.product-type.application";
-        };
-        /* End PBXNativeTarget section */
-
-        /* Begin PBXProject section */
-        DA7B69F52B2B0E0C00D0E7F1 /* Project object */ = {
-            isa = PBXProject;
-            attributes = {
-                BuildIndependentTargetsInParallel = 1;
-                LastSwiftUpdateCheck = 1500;
-                LastUpgradeCheck = 1500;
-                TargetAttributes = {
-                    DA7B69FC2B2B0E0C00D0E7F1 = {
-                        CreatedOnToolsVersion = 15.0;
-                    };
-                };
+        
+        /* Begin XCBuildConfiguration section */
+        DA7B6A092B2B0E0D00D0E7F1 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                // ... Other build settings ...
+                CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
+                CODE_SIGN_ENTITLEMENTS = TaskFlow/TaskFlow.entitlements;
+                // ... Rest of build settings ...
             };
-            buildConfigurationList = DA7B69F82B2B0E0C00D0E7F1 /* Build configuration list for PBXProject "TaskFlow" */;
-            compatibilityVersion = "Xcode 14.0";
-            developmentRegion = en;
-            hasScannedForEncodings = 0;
-            knownRegions = (
-                en,
+            name = Debug;
+        };
+        DA7B6A0A2B2B0E0D00D0E7F1 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                // ... Other build settings ...
+                CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
+                CODE_SIGN_ENTITLEMENTS = TaskFlow/TaskFlow.entitlements;
+                // ... Rest of build settings ...
+            };
+            name = Release;
+        };
+        /* End XCBuildConfiguration section */
+    };
+    rootObject = DA7B69F52B2B0E0C00D0E7F1 /* Project object */;
+}
