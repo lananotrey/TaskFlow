@@ -6,6 +6,8 @@ struct ProjectsView: View {
     @State private var editingProject: Project?
     @State private var showingDeleteAlert = false
     @State private var projectToDelete: Project?
+    @State private var showingDeleteConfirmation = false
+    @Binding var selectedTab: Int
     
     let columns = [
         GridItem(.flexible()),
@@ -30,7 +32,7 @@ struct ProjectsView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 16) {
                             ForEach(taskManager.projects) { project in
-                                ProjectCard(project: project)
+                                ProjectCard(project: project, selectedTab: $selectedTab)
                                     .contextMenu {
                                         Button {
                                             editingProject = project
@@ -70,11 +72,19 @@ struct ProjectsView: View {
                 Button("Delete", role: .destructive) {
                     if let project = projectToDelete {
                         taskManager.deleteProject(project)
+                        showingDeleteConfirmation = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            showingDeleteConfirmation = false
+                        }
                     }
                 }
                 Button("Cancel", role: .cancel) {}
             } message: {
                 Text("Are you sure you want to delete this project? All associated tasks will also be deleted.")
+            }
+            .alert("Project Deleted", isPresented: $showingDeleteConfirmation) {
+            } message: {
+                Text("The project has been successfully deleted.")
             }
         }
     }
@@ -83,9 +93,10 @@ struct ProjectsView: View {
 struct ProjectCard: View {
     @EnvironmentObject var taskManager: TaskManager
     let project: Project
+    @Binding var selectedTab: Int
     
     var body: some View {
-        NavigationLink(destination: ProjectDetailView(project: project)) {
+        NavigationLink(destination: ProjectDetailView(project: project, selectedTab: $selectedTab)) {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     Text(project.name)

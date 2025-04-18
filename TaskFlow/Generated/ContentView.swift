@@ -20,7 +20,7 @@ struct ContentView: View {
                         .tag(0)
                         .environmentObject(taskManager)
                     
-                    ProjectsView()
+                    ProjectsView(selectedTab: $selectedTab)
                         .tabItem {
                             Label("Projects", systemImage: "folder")
                         }
