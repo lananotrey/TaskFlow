@@ -1,5 +1,4 @@
 import SwiftUI
-import StoreKit
 
 struct SettingsView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
@@ -13,7 +12,7 @@ struct SettingsView: View {
                 }
                 
                 Section("Support") {
-                    Link(destination: URL(string: "itms-apps://itunes.apple.com/app/id\(Constants.appStoreId)")!) {
+                    Button(action: rateApp) {
                         HStack {
                             Text("Rate this app")
                             Spacer()
@@ -66,6 +65,11 @@ struct SettingsView: View {
             .navigationTitle("Settings")
             .preferredColorScheme(isDarkMode ? .dark : .light)
         }
+    }
+    
+    private func rateApp() {
+        guard let appStoreURL = URL(string: "https://apps.apple.com/app/id\(Constants.appStoreId)") else { return }
+        UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
     }
     
     private func shareApp() {
