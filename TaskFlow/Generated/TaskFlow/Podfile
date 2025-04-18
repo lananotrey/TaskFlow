@@ -1,0 +1,11 @@
+platform :ios, '15.0'
+
+target 'TaskFlow' do
+  use_frameworks!
+
+  pod 'Firebase/Core'
+  pod 'Firebase/RemoteConfig'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
+
+end
