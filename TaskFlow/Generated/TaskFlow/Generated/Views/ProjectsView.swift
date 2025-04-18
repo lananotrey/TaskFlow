@@ -4,6 +4,8 @@ struct ProjectsView: View {
     @EnvironmentObject var taskManager: TaskManager
     @State private var showingAddProject = false
     @State private var editingProject: Project?
+    @State private var showingDeleteAlert = false
+    @State private var projectToDelete: Project?
     
     let columns = [
         GridItem(.flexible()),
@@ -37,7 +39,8 @@ struct ProjectsView: View {
                                         }
                                         
                                         Button(role: .destructive) {
-                                            taskManager.deleteProject(project)
+                                            projectToDelete = project
+                                            showingDeleteAlert = true
                                         } label: {
                                             Label("Delete", systemImage: "trash")
                                         }
@@ -62,6 +65,16 @@ struct ProjectsView: View {
             }
             .sheet(item: $editingProject) { project in
                 EditProjectView(project: project)
+            }
+            .alert("Delete Project", isPresented: $showingDeleteAlert) {
+                Button("Delete", role: .destructive) {
+                    if let project = projectToDelete {
+                        taskManager.deleteProject(project)
+                    }
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("Are you sure you want to delete this project? All associated tasks will also be deleted.")
             }
         }
     }
