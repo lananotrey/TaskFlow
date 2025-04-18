@@ -35,13 +35,25 @@
                 TARGETED_DEVICE_FAMILY = "1,2";
                 FRAMEWORK_SEARCH_PATHS = (
                     "$(inherited)",
-                    "$(PODS_ROOT)/FirebaseRemoteConfigInternal/Frameworks",
-                    "$(PODS_CONFIGURATION_BUILD_DIR)/FirebaseRemoteConfigInternal"
+                    "$(PODS_ROOT)/FirebaseAnalytics/Frameworks",
+                    "$(PODS_ROOT)/FirebaseCore/Frameworks",
+                    "$(PODS_ROOT)/FirebaseInstallations/Frameworks",
+                    "$(PODS_ROOT)/FirebaseMessaging/Frameworks",
+                    "$(PODS_ROOT)/FirebaseRemoteConfig/Frameworks",
+                    "$(PODS_ROOT)/GoogleUtilities/Frameworks"
                 );
                 OTHER_LDFLAGS = (
                     "$(inherited)",
                     "-framework",
-                    "FirebaseRemoteConfigInternal"
+                    "Firebase",
+                    "-framework",
+                    "FirebaseCore",
+                    "-framework",
+                    "FirebaseAnalytics",
+                    "-framework",
+                    "FirebaseMessaging",
+                    "-framework",
+                    "FirebaseRemoteConfig"
                 );
             };
             name = Debug;

@@ -2,21 +2,21 @@ platform :ios, '15.0'
 
 target 'TaskFlow' do
   use_frameworks!
-  
-  # Firebase
+
   pod 'Firebase'
   pod 'FirebaseCore'
   pod 'FirebaseAnalytics'
   pod 'FirebaseMessaging'
   pod 'FirebaseRemoteConfig'
-  pod 'FirebaseRemoteConfigInternal', '~> 10.0'
-  pod 'FirebaseRemoteConfigInterop'
   pod 'FirebaseRemoteConfigSwift'
-  
-  # Dependencies
+  pod 'FirebaseRemoteConfigInterop'
+  pod 'FirebaseCoreInternal'
+  pod 'FirebaseInstallations'
   pod 'GoogleUtilities'
+  pod 'GoogleDataTransport'
+  pod 'PromisesObjC'
   pod 'nanopb'
-  
+
 end
 
 post_install do |installer|
