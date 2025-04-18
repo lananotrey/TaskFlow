@@ -2,11 +2,16 @@ platform :ios, '15.0'
 
 target 'TaskFlow' do
   use_frameworks!
-
-  pod 'Firebase/Core'
-  pod 'Firebase/RemoteConfig'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/Analytics'
+  
+  pod 'Firebase'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseCore'
+  pod 'FirebaseMessaging'
+  pod 'FirebaseRemoteConfig'
+  pod 'FirebaseRemoteConfigInterop'
+  pod 'FirebaseRemoteConfigSwift'
   pod 'FirebaseRemoteConfigInternal'
-
+  pod 'GoogleUtilities'
+  pod 'nanopb'
+  
 end
