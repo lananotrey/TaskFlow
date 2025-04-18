@@ -15,6 +15,7 @@
                 CODE_SIGN_IDENTITY = "Apple Development";
                 CODE_SIGN_ENTITLEMENTS = TaskFlow/TaskFlow.entitlements;
                 CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
+                ENABLE_BITCODE = NO;
                 CURRENT_PROJECT_VERSION = 1;
                 DEVELOPMENT_ASSET_PATHS = "\"TaskFlow/Preview Content\"";
                 DEVELOPMENT_TEAM = "";
@@ -46,6 +47,7 @@
                 );
                 OTHER_LDFLAGS = (
                     "$(inherited)",
+                    "-ObjC",
                     "-framework",
                     "Firebase",
                     "-framework",
