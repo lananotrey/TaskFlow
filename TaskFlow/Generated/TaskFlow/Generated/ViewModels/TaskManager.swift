@@ -15,11 +15,7 @@ class TaskManager: ObservableObject {
             Project(name: "Shopping", color: "mint")
         ]
         
-        tasks = [
-            TaskTask(title: "Buy groceries", description: "Get milk, eggs, and bread", priority: .medium, projectId: projects[2].id),
-            TaskTask(title: "Finish presentation", description: "Complete slides for meeting", priority: .high, projectId: projects[1].id),
-            TaskTask(title: "Exercise", description: "30 minutes cardio", priority: .low, projectId: projects[0].id)
-        ]
+        tasks = []
     }
     
     func addTask(_ task: TaskTask) {
