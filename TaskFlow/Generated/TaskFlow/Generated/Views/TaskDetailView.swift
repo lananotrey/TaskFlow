@@ -98,7 +98,7 @@ struct TaskDetailView: View {
     }
     
     private var actionsSection: some View {
-        HStack(spacing: 16) {
+        HStack {
             Button(action: shareTask) {
                 Label("Share", systemImage: "square.and.arrow.up")
                     .frame(maxWidth: .infinity)
@@ -119,6 +119,7 @@ struct TaskDetailView: View {
             }
             .buttonStyle(.bordered)
         }
+        .labelStyle(.iconOnly)
         .padding()
         .background(Color(UIColor.secondarySystemGroupedBackground))
         .cornerRadius(16)
