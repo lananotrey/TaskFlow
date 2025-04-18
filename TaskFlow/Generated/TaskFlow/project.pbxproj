@@ -13,11 +13,13 @@
                 ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
                 CODE_SIGN_STYLE = Automatic;
                 CODE_SIGN_IDENTITY = "Apple Development";
-                CODE_SIGN_ENTITLEMENTS = TaskFlow/TaskFlow.entitlements;
+                CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/TaskFlow/TaskFlow.entitlements";
+                COPY_PHASE_STRIP = NO;
                 CURRENT_PROJECT_VERSION = 1;
                 DEVELOPMENT_ASSET_PATHS = "\"TaskFlow/Preview Content\"";
                 DEVELOPMENT_TEAM = "";
                 ENABLE_PREVIEWS = YES;
+                ENABLE_BITCODE = NO;
                 GENERATE_INFOPLIST_FILE = YES;
                 INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
                 INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -47,8 +49,8 @@
                     "$(inherited)",
                     "-framework",
                     "Firebase",
-                    "-framework",
-                    "FirebaseCore", 
+                    "-framework", 
+                    "FirebaseCore",
                     "-framework",
                     "FirebaseAnalytics",
                     "-framework",
