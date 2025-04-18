@@ -32,7 +32,7 @@ struct ProjectsView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 16) {
                             ForEach(taskManager.projects) { project in
-                                ProjectCard(project: project, selectedTab: $selectedTab)
+                                ProjectCard(selectedTab: $selectedTab, project: project)
                                     .contextMenu {
                                         Button {
                                             editingProject = project
@@ -92,11 +92,11 @@ struct ProjectsView: View {
 
 struct ProjectCard: View {
     @EnvironmentObject var taskManager: TaskManager
-    let project: Project
     @Binding var selectedTab: Int
+    let project: Project
     
     var body: some View {
-        NavigationLink(destination: ProjectDetailView(project: project, selectedTab: $selectedTab)) {
+        NavigationLink(destination: ProjectDetailView(selectedTab: $selectedTab, project: project)) {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     Text(project.name)
