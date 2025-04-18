@@ -3,12 +3,14 @@ import SwiftUI
 struct AddTaskView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var taskManager: TaskManager
+    @Binding var selectedTab: Int
     
     @State private var title = ""
     @State private var description = ""
     @State private var dueDate = Date()
     @State private var priority = Priority.medium
     @State private var selectedProject: Project?
+    @State private var showingSaveAlert = false
     
     var body: some View {
         NavigationStack {
@@ -20,7 +22,7 @@ struct AddTaskView: View {
                 }
                 
                 Section("Due Date") {
-                    DatePicker("Select Date", selection: $dueDate, displayedComponents: [.date, .hourAndMinute])
+                    DatePicker("Select Date", selection: $dueDate)
                 }
                 
                 Section("Priority") {
@@ -59,19 +61,40 @@ struct AddTaskView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
-                        let newTask = TaskTask(
-                            title: title,
-                            description: description,
-                            dueDate: dueDate,
-                            priority: priority,
-                            projectId: selectedProject?.id
-                        )
-                        taskManager.addTask(newTask)
-                        dismiss()
+                        saveTask()
+                        showingSaveAlert = true
                     }
                     .disabled(title.isEmpty)
                 }
             }
+            .alert("Task Added", isPresented: $showingSaveAlert) {
+                Button("OK") {
+                    resetForm()
+                    dismiss()
+                    selectedTab = 0
+                }
+            } message: {
+                Text("Your task has been successfully added.")
+            }
         }
+    }
+    
+    private func saveTask() {
+        let newTask = TaskTask(
+            title: title,
+            description: description,
+            dueDate: dueDate,
+            priority: priority,
+            projectId: selectedProject?.id
+        )
+        taskManager.addTask(newTask)
+    }
+    
+    private func resetForm() {
+        title = ""
+        description = ""
+        dueDate = Date()
+        priority = .medium
+        selectedProject = nil
     }
 }

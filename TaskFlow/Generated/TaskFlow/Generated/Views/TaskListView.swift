@@ -56,13 +56,8 @@ struct TaskListView: View {
             }
             .sheet(isPresented: $showingAddTask) {
                 NavigationView {
-                    AddTaskView()
+                    AddTaskView(selectedTab: $selectedTab)
                 }
-            }
-            .alert("Task Added", isPresented: $showingSuccessAlert) {
-                Button("OK", role: .cancel) { }
-            } message: {
-                Text("Your new task has been successfully added.")
             }
         }
     }
