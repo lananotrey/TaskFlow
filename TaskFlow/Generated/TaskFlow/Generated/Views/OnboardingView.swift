@@ -6,65 +6,95 @@ struct OnboardingView: View {
     
     let pages = [
         OnboardingPage(
-            title: "Welcome to TaskFlow",
-            description: "Organize your tasks and projects efficiently",
-            imageName: "checklist"
+            title: "Organize Tasks",
+            description: "Create and manage your daily tasks with priority levels and due dates",
+            imageName: "checklist.checked"
         ),
         OnboardingPage(
-            title: "Create Projects",
-            description: "Group related tasks together in customizable projects",
-            imageName: "folder"
+            title: "Project Management",
+            description: "Group related tasks into projects and track progress for each project",
+            imageName: "folder.fill.badge.person.crop"
         ),
         OnboardingPage(
             title: "Track Progress",
-            description: "Monitor your productivity with detailed statistics",
-            imageName: "chart.bar"
+            description: "View detailed statistics and completion rates for your tasks and projects",
+            imageName: "chart.bar.fill"
         )
     ]
     
     var body: some View {
         ZStack {
-            Color.gray.opacity(0.1).ignoresSafeArea()
+            Color(UIColor.systemGroupedBackground).ignoresSafeArea()
             
             VStack {
+                Spacer()
+                
                 TabView(selection: $currentPage) {
                     ForEach(0..<pages.count, id: \.self) { index in
                         VStack(spacing: 32) {
                             Image(systemName: pages[index].imageName)
-                                .font(.system(size: 100))
+                                .font(.system(size: 80))
                                 .foregroundStyle(.indigo)
+                                .symbolEffect(.bounce, options: .repeating)
                             
-                            Text(pages[index].title)
-                                .font(.title)
-                                .bold()
-                            
-                            Text(pages[index].description)
-                                .font(.body)
-                                .multilineTextAlignment(.center)
-                                .foregroundStyle(.gray)
-                                .padding(.horizontal)
+                            VStack(spacing: 16) {
+                                Text(pages[index].title)
+                                    .font(.title)
+                                    .bold()
+                                    .transition(.opacity)
+                                
+                                Text(pages[index].description)
+                                    .font(.body)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.gray)
+                                    .padding(.horizontal, 32)
+                                    .transition(.opacity)
+                            }
                         }
                         .tag(index)
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .always))
+                .animation(.easeInOut, value: currentPage)
                 
-                Button {
-                    withAnimation {
-                        hasCompletedOnboarding = true
+                Spacer()
+                
+                VStack(spacing: 20) {
+                    if currentPage < pages.count - 1 {
+                        Button {
+                            withAnimation {
+                                currentPage += 1
+                            }
+                        } label: {
+                            Text("Next")
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.indigo)
+                                .cornerRadius(12)
+                        }
+                    } else {
+                        Button {
+                            withAnimation(.spring) {
+                                hasCompletedOnboarding = true
+                            }
+                        } label: {
+                            Text("Get Started")
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.indigo)
+                                .cornerRadius(12)
+                        }
                     }
-                } label: {
-                    Text("Get Started")
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.indigo)
-                        .cornerRadius(12)
                 }
-                .padding()
+                .padding(.horizontal, 32)
+                .padding(.bottom, 32)
             }
         }
+        .preferredColorScheme(.light)
     }
 }
 
