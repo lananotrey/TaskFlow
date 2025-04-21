@@ -27,18 +27,11 @@ struct ContentView: View {
                         .tag(1)
                         .environmentObject(taskManager)
                     
-                    StatsView()
-                        .tabItem {
-                            Label("Stats", systemImage: "chart.bar")
-                        }
-                        .tag(2)
-                        .environmentObject(taskManager)
-                    
                     SettingsView()
                         .tabItem {
                             Label("Settings", systemImage: "gear")
                         }
-                        .tag(3)
+                        .tag(2)
                 }
                 .tint(.indigo)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
