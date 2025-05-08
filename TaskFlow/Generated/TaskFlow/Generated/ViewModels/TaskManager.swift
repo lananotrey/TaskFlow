@@ -1,16 +1,25 @@
 import SwiftUI
 
 class TaskManager: ObservableObject {
-    @Published var tasks: [TaskTask] = []
-    @Published var projects: [Project] = []
-    
-    init() {
-        loadSampleData()
+    @Published var tasks: [TaskTask] = [] {
+        didSet {
+            LocalStorage.shared.saveTasks(tasks)
+        }
     }
     
-    private func loadSampleData() {
-        projects = []
-        tasks = []
+    @Published var projects: [Project] = [] {
+        didSet {
+            LocalStorage.shared.saveProjects(projects)
+        }
+    }
+    
+    init() {
+        loadSavedData()
+    }
+    
+    private func loadSavedData() {
+        tasks = LocalStorage.shared.loadTasks()
+        projects = LocalStorage.shared.loadProjects()
     }
     
     func addTask(_ task: TaskTask) {
